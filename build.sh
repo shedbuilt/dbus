@@ -8,9 +8,11 @@
             --docdir=/usr/share/doc/dbus-1.10.22 \
             --with-console-auth-dir=/run/console
 make -j $SHED_NUMJOBS
-make DESTDIR=${SHED_FAKEROOT} install
-mkdir -v ${SHED_FAKEROOT}/lib
-mv -v ${SHED_FAKEROOT}/usr/lib/libdbus-1.so.* ${SHED_FAKEROOT}/lib
-ln -sfv ../../lib/$(readlink ${SHED_FAKEROOT}/usr/lib/libdbus-1.so) ${SHED_FAKEROOT}/usr/lib/libdbus-1.so
-mkdir -pv ${SHED_FAKEROOT}/var/lib
-ln -sfv /etc/machine-id ${SHED_FAKEROOT}/var/lib/dbus
+make "DESTDIR=${SHED_FAKEROOT}" install
+mkdir -v "${SHED_FAKEROOT}/lib"
+mv -v ${SHED_FAKEROOT}/usr/lib/libdbus-1.so.* "${SHED_FAKEROOT}/lib"
+ln -sfv ../../lib/$(readlink ${SHED_FAKEROOT}/usr/lib/libdbus-1.so) "${SHED_FAKEROOT}/usr/lib/libdbus-1.so"
+mkdir -pv "${SHED_FAKEROOT}/var/lib"
+ln -sfv /etc/machine-id "${SHED_FAKEROOT}/var/lib/dbus"
+# Prevent the dbus archive from overwriting the symlink from /var/run -> /run
+rm -rf "${SHED_FAKEROOT}/var/run"
