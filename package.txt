@@ -1,5 +1,5 @@
 NAME=dbus
-VERSION=1.10.22
-REVISION=3
-SRC=http://dbus.freedesktop.org/releases/dbus/dbus-1.10.22.tar.gz
-SRCMD5=baaa10b7cb49086ad91179a8decfadc5
+VERSION=1.12.2
+REVISION=4
+SRC=http://dbus.freedesktop.org/releases/dbus/dbus-1.12.2.tar.gz
+SRCMD5=3361456cadb99aa6601bed5b48964254
