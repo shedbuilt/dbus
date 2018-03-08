@@ -5,7 +5,7 @@
             --disable-static \
             --disable-doxygen-docs \
             --disable-xml-docs \
-            --docdir=/usr/share/doc/dbus-1.12.4 \
+            --docdir=/usr/share/doc/dbus-1.12.6 \
             --with-console-auth-dir=/run/console && \
 make -j $SHED_NUMJOBS && \
 make DESTDIR="$SHED_FAKEROOT" install || exit 1
