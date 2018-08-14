@@ -1,7 +1,7 @@
 NAME=dbus
-VERSION=1.12.8
-REVISION=1
-SRC=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.8.tar.gz
-SRCMD5=2764bf150e5aa8005b7bc0d6c388756a
+VERSION=1.12.10
+REVISION=2
+SRC=https://dbus.freedesktop.org/releases/dbus/dbus-1.12.10.tar.gz
+SRCMD5=c3e12b4206e2a7da39d7cc42567790ef
 OPTIONS=bootstrap|release (docs)
 DEFAULTS=release docs

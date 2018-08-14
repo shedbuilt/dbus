@@ -1,6 +1,5 @@
 #!/bin/bash
 declare -A SHED_PKG_LOCAL_OPTIONS=${SHED_PKG_OPTIONS_ASSOC}
-SHED_PKG_LOCAL_DOCDIR="/usr/share/doc/${SHED_PKG_NAME}-${SHED_PKG_VERSION}"
 # Configure
 ./configure --prefix=/usr \
             --sysconfdir=/etc \
@@ -8,7 +7,7 @@ SHED_PKG_LOCAL_DOCDIR="/usr/share/doc/${SHED_PKG_NAME}-${SHED_PKG_VERSION}"
             --disable-static \
             --disable-doxygen-docs \
             --disable-xml-docs \
-            --docdir=$SHED_PKG_LOCAL_DOCDIR \
+            --docdir="$SHED_PKG_DOCS_INSTALL_DIR" \
             --with-console-auth-dir=/run/console &&
 # Build and Install
 make -j $SHED_NUM_JOBS &&
@@ -20,5 +19,5 @@ mkdir -pv "${SHED_FAKE_ROOT}/var/lib" &&
 ln -sfv /etc/machine-id "${SHED_FAKE_ROOT}/var/lib/dbus" || exit 1
 # Optionally Remove Documentation
 if [ -z "${SHED_PKG_LOCAL_OPTIONS[docs]}" ]; then
-    rm -rf "${SHED_FAKE_ROOT}/usr/share/doc"
+    rm -rf "${SHED_FAKE_ROOT}${SHED_PKG_DOCS_INSTALL_DIR}"
 fi
